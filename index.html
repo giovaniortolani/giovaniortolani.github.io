@@ -1,12 +1,15 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-<head>
+  <head>
     <!-- Google Search Console Verification -->
-    <meta name="google-site-verification" content="5Y7FZfjYy8SuzQun7OkG0mJv_9JsUAj6aMOgXiRsR8E" />
+    <meta
+      name="google-site-verification"
+      content="5Y7FZfjYy8SuzQun7OkG0mJv_9JsUAj6aMOgXiRsR8E"
+    />
 
     <!-- Teste do link de compartilhamento de browsers mobile ->
     <!-- <link rel="canonical" href="https://gepetotestes.ga/?soubobo=true"> -->
-    
+
     <!-- Exemplos de push no DL antes do GTM ser inicializado. Mesmo assim todas as tags são disparadas corretamente.
     <script>
         window.dataLayer = window.dataLayer || [];
@@ -30,47 +33,70 @@
         });
     </script>
     -->
-    
-    <script>
-      document.addEventListener('DOMContentLoaded', (event) => console.log('%c> Page State:', 'font-weight:bold;color:red', 'DOM loaded.'));
 
-      document.addEventListener('readystatechange', (event) => { 
-          if (event.target.readyState === 'interactive') console.log('%c> Page State:', 'font-weight:bold;color:red', 'readystate interactive.') 
+    <script>
+      document.addEventListener('DOMContentLoaded', event =>
+        console.log(
+          '%c> Page State:',
+          'font-weight:bold;color:red',
+          'DOM loaded.'
+        )
+      );
+
+      document.addEventListener('readystatechange', event => {
+        if (event.target.readyState === 'interactive')
+          console.log(
+            '%c> Page State:',
+            'font-weight:bold;color:red',
+            'readystate interactive.'
+          );
       });
-      
-      document.addEventListener('readystatechange', (event) => { 
-          if (event.target.readyState === 'complete') console.log('%c> Page State:', 'font-weight:bold;color:red', 'readystate complete.') 
+
+      document.addEventListener('readystatechange', event => {
+        if (event.target.readyState === 'complete')
+          console.log(
+            '%c> Page State:',
+            'font-weight:bold;color:red',
+            'readystate complete.'
+          );
       });
-      
-      window.addEventListener('load', (event) => console.log('%c> Page State:', 'font-weight:bold;color:red', 'Window loaded.'));
-      
+
+      window.addEventListener('load', event =>
+        console.log(
+          '%c> Page State:',
+          'font-weight:bold;color:red',
+          'Window loaded.'
+        )
+      );
+
       let callGoogleWebApp = async function() {
         var div = document.querySelector('#googleWebApp');
         div.textContent = 'Calling Google Web App...';
-        
+
         let data;
-        let response = await fetch('https://script.google.com/macros/s/AKfycbwLu-Elv5pC10ehajglL7gq6rkB8asH_LWkBmUFUtYGI2yA9csR/exec');
+        let response = await fetch(
+          'https://script.google.com/macros/s/AKfycbwLu-Elv5pC10ehajglL7gq6rkB8asH_LWkBmUFUtYGI2yA9csR/exec'
+        );
         if (!response.ok) data = 'Error fetching Google Web.';
         else {
-            try {
-                data = await response.text();
-            } catch(err) {
-                data = err.message;
-            }
+          try {
+            data = await response.text();
+          } catch (err) {
+            data = err.message;
+          }
         }
         div.textContent = data;
-      }  
+      };
     </script>
-    <script defer src='/js/showTagDict.js'></script>
-    
+    <script defer src="/js/showTagDict.js"></script>
+
     <!--<script defer src='https://javascript.info/article/script-async-defer/long.js?speed=1'></script>-->
     <!--<script defer src='//gepetotestes.co.nf/js/test.js'></script>-->
-    
-    
+
     <!-- Large Image -->
     <!-- <img src="https://images.unsplash.com/photo-1500021804447-2ca2eaaaabeb?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&cb=12345" alt="large image"> -->
 
-    <!-- ga.js (legacy) 
+    <!-- ga.js (legacy)
     <script>
     var _gaq = _gaq || [];
     _gaq.push(['_setAccount', 'UA-128978972-1']);
@@ -83,79 +109,126 @@
     })();
     </script>
     -->
-   
-    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-    })(window,document,'script','dataLayer','GTM-MQQ8N79');</script>
+
+    <script>
+      (function(w, d, s, l, i) {
+        w[l] = w[l] || [];
+        w[l].push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' });
+        var f = d.getElementsByTagName(s)[0],
+          j = d.createElement(s),
+          dl = l != 'dataLayer' ? '&l=' + l : '';
+        j.async = true;
+        j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+        f.parentNode.insertBefore(j, f);
+      })(window, document, 'script', 'dataLayer', 'GTM-MQQ8N79');
+    </script>
     <!-- End Google Tag Manager -->
-    
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png">
-    <link rel="manifest" href="/favicon/site.webmanifest">
-    <link rel="mask-icon" href="/favicon/safari-pinned-tab.svg" color="#5bbad5">
-    <link rel="shortcut icon" href="/favicon/favicon.ico">
-    <meta name="msapplication-TileColor" content="#da532c">
-    <meta name="msapplication-config" content="/favicon/browserconfig.xml">
-    <meta name="theme-color" content="#ffffff">
-    
+
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="/favicon/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="/favicon/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="/favicon/favicon-16x16.png"
+    />
+    <link rel="manifest" href="/favicon/site.webmanifest" />
+    <link
+      rel="mask-icon"
+      href="/favicon/safari-pinned-tab.svg"
+      color="#5bbad5"
+    />
+    <link rel="shortcut icon" href="/favicon/favicon.ico" />
+    <meta name="msapplication-TileColor" content="#da532c" />
+    <meta name="msapplication-config" content="/favicon/browserconfig.xml" />
+    <meta name="theme-color" content="#ffffff" />
+
     <title>Gepeto Testes</title>
-    
+
     <style>
-        footer {
-            width:100%;
-            position: absolute;
-            bottom:0;
-        }
-        #footerimage {
-            position: relative;
-            display: block;
-            float: left;
-            max-width: 100%;
-            height: auto;
-        }
+      footer {
+        width: 100%;
+        position: absolute;
+        bottom: 0;
+      }
+      #footerimage {
+        position: relative;
+        display: block;
+        float: left;
+        max-width: 100%;
+        height: auto;
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
     <!-- Google Tag Manager (noscript) -->
-    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MQQ8N79"
-    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <noscript
+      ><iframe
+        src="https://www.googletagmanager.com/ns.html?id=GTM-MQQ8N79"
+        height="0"
+        width="0"
+        style="display:none;visibility:hidden"
+      ></iframe
+    ></noscript>
     <!-- End Google Tag Manager (noscript) -->
-    
+
     <main>
-        <p>teste testinho</p>
-        
-        <div>
-            <a href='/link.html'>link.html</a>
-        </div>
-        <div>
-            <a href='https://example.com/'>example.com</a>
-        </div>
-        <div>
-            <a href='http://raccoongepeto.c1.biz/'>raccoongepeto.co.nf</a>
-        </div>
-        
-        <button onclick='callGoogleWebApp()'>TESTE TESTINHO DO GOOGLE WEB APP</button>
-        <div id='googleWebApp'></div>
-    
-        <button onclick='callSpreadsheet()'>Invocar showTagDict no Data Layer</button>
-        
-        <p>Teste do comportamento do clique em imagem abraçada por link</p>
-        <a href="/link.html" target="_blank">
-          <span> 
-            Teste
-            <img src='/images/siteblindado.png' id="footerimage" width="50px" height="50px" alt='Site Blindadão 0 Hackers'>
-          </span>
-        </a>
+      <p>teste testinho</p>
+
+      <div>
+        <a href="/link.html">link.html</a>
+      </div>
+      <div>
+        <a href="https://example.com/">example.com</a>
+      </div>
+      <div>
+        <a href="http://raccoongepeto.c1.biz/">raccoongepeto.co.nf</a>
+      </div>
+
+      <button onclick="callGoogleWebApp()">
+        TESTE TESTINHO DO GOOGLE WEB APP
+      </button>
+      <div id="googleWebApp"></div>
+
+      <button onclick="callSpreadsheet()">
+        Invocar showTagDict no Data Layer
+      </button>
+
+      <p>Teste do comportamento do clique em imagem abraçada por link</p>
+      <a href="/link.html" target="_blank">
+        <span>
+          Teste
+          <img
+            src="/images/siteblindado.png"
+            id="footerimage"
+            width="50px"
+            height="50px"
+            alt="Site Blindadão 0 Hackers"
+          />
+        </span>
+      </a>
     </main>
-    
+    ALOUUUUUUUUUUUUUU
     <footer>
-        <img src='/images/siteblindado.png' id="footerimage" width="320px" height="200px" alt='Site Blindadão 0 Hackers'>
+      <img
+        src="/images/siteblindado.png"
+        id="footerimage"
+        width="320px"
+        height="200px"
+        alt="Site Blindadão 0 Hackers"
+      />
     </footer>
-</body>
+  </body>
 </html>
