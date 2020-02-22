@@ -13,4 +13,5 @@ const callSpreadsheet = async () => {
     ShowTagDict: showTagDict
   });
 };
-if (/ticketsforfun\.com\.br/.test(document.location.hostname)) callSpreadsheet();
+if (/ticketsforfun\.com\.br/.test(document.location.hostname))
+  callSpreadsheet();
