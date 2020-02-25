@@ -11,7 +11,7 @@ footer {
 #siteblindado {
   position: relative;
   display: block;
-  float: left;
+  /* float: left; */
   max-width: 100%;
   height: auto;
   margin-left: auto;
