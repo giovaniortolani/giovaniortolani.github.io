@@ -69,6 +69,24 @@
 
     <!-- Main JS -->
     <script src="/js/loadEvents.js"></script>
+    <script>
+        let callGoogleWebApp = async function () {
+            var div = document.querySelector('#googleWebApp');
+            div.textContent = 'Calling Google Web App...';
+
+            let data;
+            let response = await fetch('https://script.google.com/macros/s/AKfycbwLu-Elv5pC10ehajglL7gq6rkB8asH_LWkBmUFUtYGI2yA9csR/exec');
+            if (!response.ok) data = 'Error fetching Google Web App.';
+            else {
+                try {
+                    data = await response.text();
+                } catch (err) {
+                    data = err.message;
+                }
+            }
+            div.textContent = data;
+        };
+    </script>
 
     <!-- Google Search Console Verification -->
     <meta name="google-site-verification" content="5Y7FZfjYy8SuzQun7OkG0mJv_9JsUAj6aMOgXiRsR8E" />
