@@ -1,4 +1,4 @@
-console.log('Start of Blue Script', performance.now());
+console.log('### Start of blue-tag.min.js', performance.now());
 (window.blue = {}),
   (window.blue.isMobileDetected = function() {
     return !!(
@@ -362,4 +362,4 @@ function generateUid() {
     var e = navigator.cookieEnabled;
     return e || ((document.cookie = 'testcookie'), (e = -1 != document.cookie.indexOf('testcookie'))), !!e;
   });
-console.log('End of Blue Script', performance.now());
+console.log('### End of blue-tag.min.js', performance.now());
