@@ -31,23 +31,28 @@
   };
 
   window.callGoogleWebApp = async function() {
+    const event = 'googleWebApp';
     const endpoint = 'https://script.google.com/macros/s/AKfycbwLu-Elv5pC10ehajglL7gq6rkB8asH_LWkBmUFUtYGI2yA9csR/exec';
-
     const div = document.querySelector('#googleWebApp');
     div.textContent = 'Calling Google Web App...';
     let data;
-    const response = await fetch(endpoint);
-    if (!response.ok) {
-      data = 'Error fetching Google Web App.';
-      pushToDataLayer('googleWebApp', { status: 'Error' });
-    } else {
-      try {
-        data = await response.text();
-        pushToDataLayer('googleWebApp', { status: 'OK', data });
-      } catch (err) {
-        data = err.message;
-        pushToDataLayer('googleWebApp', { status: 'Error', data });
+    try {
+      const response = await fetch(endpoint);
+      if (!response.ok) {
+        data = 'Error fetching Google Web App.';
+        pushToDataLayer(event, { status: 'Error' });
+      } else {
+        try {
+          data = await response.text();
+          pushToDataLayer(event, { status: 'OK', data });
+        } catch (err) {
+          data = err.message;
+          pushToDataLayer(event, { status: 'Error', data });
+        }
       }
+    } catch (e) {
+      data = 'Google Web App request failed.';
+      pushToDataLayer(event, { status: 'Error', data });
     }
     div.textContent = data;
   };
