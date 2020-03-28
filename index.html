@@ -72,17 +72,38 @@
     <script src="/js/loadEvents.js"></script>
     <script>
         let callGoogleWebApp = async function () {
-            var div = document.querySelector('#googleWebApp');
+            const endpoint = 'https://script.google.com/macros/s/AKfycbwLu-Elv5pC10ehajglL7gq6rkB8asH_LWkBmUFUtYGI2yA9csR/exec;
+
+            const div = document.querySelector('#googleWebApp');
             div.textContent = 'Calling Google Web App...';
 
             let data;
-            let response = await fetch('https://script.google.com/macros/s/AKfycbwLu-Elv5pC10ehajglL7gq6rkB8asH_LWkBmUFUtYGI2yA9csR/exec');
-            if (!response.ok) data = 'Error fetching Google Web App.';
+            const response = await fetch(endpoint);
+            if (!response.ok) {
+                data = 'Error fetching Google Web App.';
+                window.dataLayer = window.dataLayer || [];
+                window.dataLayer.push({
+                    event: 'googleWebApp',
+                    status: 'Error'
+                });
+            }
             else {
                 try {
                     data = await response.text();
+                    window.dataLayer = window.dataLayer || [];
+                    window.dataLayer.push({
+                        event: 'googleWebApp',
+                        status: 'OK',
+                        data: data
+                    });
                 } catch (err) {
                     data = err.message;
+                    window.dataLayer = window.dataLayer || [];
+                    window.dataLayer.push({
+                        event: 'googleWebApp',
+                        status: 'Error',
+                        data: data
+                    });
                 }
             }
             div.textContent = data;
@@ -150,7 +171,7 @@
             </a>
         </div>
 
-        <button class="button" onclick="callGoogleWebApp()">TESTE TESTINHO DO GOOGLE WEB APP</button>
+        <button class="button" onclick="callGoogleWebApp">TESTE TESTINHO DO GOOGLE WEB APP</button>
         <div id="googleWebApp"></div>
 
         <!-- ShowTagDict -->

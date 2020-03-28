@@ -37,9 +37,8 @@ function handleExceptions(err, response) {
   response.headers.set('X-Debug-err', err);
 }
 
-
+// prettier-ignore
 var checkLinker = function (t) { var n, e, i = function (t, n) { for (var e = new Date, i = window.navigator, r = i.plugins || [], a = [t, i.userAgent, e.getTimezoneOffset(), e.getYear(), e.getDate(), e.getHours(), e.getMinutes() + n], s = 0; s < r.length; ++s)a.push(r[s].description); return o(a.join(".")) }, r = function (t, n) { var e = new Date, i = window.navigator, r = e.getHours() + Math.floor((e.getMinutes() + n) / 60); return o([t, i.userAgent, i.language || "", e.getTimezoneOffset(), e.getYear(), e.getDate() + Math.floor(r / 24), (24 + r) % 24, (60 + e.getMinutes() + n) % 60].join(".")) }, o = function (t) { var n, e = 1; if (t) for (e = 0, n = t.length - 1; 0 <= n; n--) { var i = t.charCodeAt(n); e = 0 != (i = 266338304 & (e = (e << 6 & 268435455) + i + (i << 14))) ? e ^ i >> 21 : e } return e.toString() }; if ("string" == typeof t && t.length) { if (!/_ga=/.test(t)) return "Invalid linker format in string argument!"; e = t.split("&").filter(function (t) { return "_ga" === t.split("=")[0] }).shift() } else e = (n = /[?&]_ga=/.test(window.location.search) ? "search" : /[#&]_ga=/.test(window.location.hash) ? "hash" : void 0) && window.location[n].substring(1).split("&").filter(function (t) { return "_ga" === t.split("=")[0] }).shift(); if (void 0 === e || !e.length) return "Invalid linker format in URL!"; var a, s, g, u, f = e.indexOf("."); return f > -1 && (e.substring(0, f), s = (a = e.substring(f + 1)).indexOf("."), g = a.substring(0, s), u = a.substring(s + 1)), void 0 !== u ? g === i(u = u.split("-").join(""), 0) || g === i(u, -1) || g === i(u, -2) || g === r(u, 0) || g === r(u, -1) || g === r(u, -2) : void 0 };
-
 
 // O Service Worker faz o hijack de qualquer requisição que vêm da página
 // e devolve uma resposta customizada (usando .respondWith()).
@@ -64,10 +63,8 @@ async function handleRequest(request) {
     if (!response.ok) {
       let body = await response.text();
       throw new Error(
-        'Bad response at origin. Status: ' +
-        response.status +
-        ' Body: ' +
-        body.trim().substring(0, 10); // ensures is string that can be a header
+        // ensures is string that can be a header
+        `Bad response at origin. Status: ${response.status} Body: ${body.trim().substring(0, 10)}`
       );
     }
 
