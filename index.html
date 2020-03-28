@@ -69,46 +69,7 @@
     <!-- Google Tag Manager - END -->
 
     <!-- Main JS -->
-    <script src="/js/loadEvents.js"></script>
-    <script>
-        let callGoogleWebApp = async function () {
-            const endpoint = 'https://script.google.com/macros/s/AKfycbwLu-Elv5pC10ehajglL7gq6rkB8asH_LWkBmUFUtYGI2yA9csR/exec;
-
-            const div = document.querySelector('#googleWebApp');
-            div.textContent = 'Calling Google Web App...';
-
-            let data;
-            const response = await fetch(endpoint);
-            if (!response.ok) {
-                data = 'Error fetching Google Web App.';
-                window.dataLayer = window.dataLayer || [];
-                window.dataLayer.push({
-                    event: 'googleWebApp',
-                    status: 'Error'
-                });
-            }
-            else {
-                try {
-                    data = await response.text();
-                    window.dataLayer = window.dataLayer || [];
-                    window.dataLayer.push({
-                        event: 'googleWebApp',
-                        status: 'OK',
-                        data: data
-                    });
-                } catch (err) {
-                    data = err.message;
-                    window.dataLayer = window.dataLayer || [];
-                    window.dataLayer.push({
-                        event: 'googleWebApp',
-                        status: 'Error',
-                        data: data
-                    });
-                }
-            }
-            div.textContent = data;
-        };
-    </script>
+    <script src="/js/scripts.js"></script>
 
     <!-- Google Search Console Verification -->
     <meta name="google-site-verification" content="5Y7FZfjYy8SuzQun7OkG0mJv_9JsUAj6aMOgXiRsR8E" />
