@@ -19,7 +19,7 @@
 })();
 
 (function() {
-  const pushToDataLayer = function(event, eventParams) {
+  window.pushToDataLayer = function(event, eventParams) {
     if (!eventParams.eventCallback) eventParams.eventCallback = () => {};
     if (!eventParams.eventTimeout) eventParams.eventCallback = 4000;
 
@@ -29,7 +29,8 @@
       ...eventParams
     });
   };
-  const callGoogleWebApp = async function() {
+
+  window.callGoogleWebApp = async function() {
     const endpoint = 'https://script.google.com/macros/s/AKfycbwLu-Elv5pC10ehajglL7gq6rkB8asH_LWkBmUFUtYGI2yA9csR/exec';
 
     const div = document.querySelector('#googleWebApp');
