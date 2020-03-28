@@ -21,7 +21,7 @@
 (function() {
   window.pushToDataLayer = function(event, eventParams) {
     if (!eventParams.eventCallback) eventParams.eventCallback = () => {};
-    if (!eventParams.eventTimeout) eventParams.eventCallback = 4000;
+    if (!eventParams.eventTimeout) eventParams.eventTimeout = 4000;
 
     window.dataLayer = window.dataLayer || [];
     window.dataLayer.push({
