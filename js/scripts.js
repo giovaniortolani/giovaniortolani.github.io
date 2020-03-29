@@ -57,6 +57,6 @@
       pushToDataLayer(event, { status: 'Error', ...data });
     }
     this.textContent += ' - *';
-    div.textContent = data;
+    div.textContent = data.text;
   };
 })();
