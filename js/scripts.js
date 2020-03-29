@@ -46,7 +46,6 @@
       } else {
         try {
           data = await response.json();
-          data = JSON.parse(data);
           pushToDataLayer(event, { status: 'OK', ...data });
         } catch (err) {
           data = err.message;
