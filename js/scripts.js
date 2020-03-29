@@ -32,12 +32,13 @@
 
   window.callGoogleWebApp = async function() {
     const event = 'googleWebApp';
-    const endpoint = 'https://script.google.com/macros/s/AKfycbwLu-Elv5pC10ehajglL7gq6rkB8asH_LWkBmUFUtYGI2yA9csR/exec';
+    const queryString = 'action=quotes&cacheexpiration=' + Math.ceil(5 + Math.random() * 15); // 5 a 20 segundos
+    const url = `https://script.google.com/macros/s/AKfycbwLu-Elv5pC10ehajglL7gq6rkB8asH_LWkBmUFUtYGI2yA9csR/exec?${queryString}`;
     const div = document.querySelector('#googleWebApp');
     div.textContent = 'Calling Google Web App...';
     let data;
     try {
-      const response = await fetch(endpoint);
+      const response = await fetch(url);
       if (!response.ok) {
         data = 'Error fetching Google Web App.';
         pushToDataLayer(event, { status: 'Error' });
