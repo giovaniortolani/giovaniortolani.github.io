@@ -36,6 +36,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <meta name="robots" content="noindex,nofollow" />
     <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png" />
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png" />
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png" />
@@ -51,6 +52,29 @@
 
     <!-- Main styles -->
     <link rel="stylesheet" href="/css/styles.css">
+    <style>
+        html {
+            /* background: url(images/bg.jpg) no-repeat center center fixed; */
+            background: no-repeat center center fixed;
+            -webkit-background-size: cover;
+            -moz-background-size: cover;
+            -o-background-size: cover;
+            background-size: cover;
+        }
+
+        body,
+        html {
+            background-color: black;
+            overflow: hidden;
+        }
+
+        #video {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+        }
+    </style>
 </head>
 
 <body>
@@ -59,17 +83,29 @@
             style="display:none;visibility:hidden"></iframe></noscript>
     <!-- End Google Tag Manager (noscript) -->
 
-    <main>
-        <!-- ... -->
-    </main>
-
     <div>
-        <picture>
-            <source type="image/webp" srcset="/imagems/siteblindado.webp">
-            <img src="/images/siteblindado.png" id="siteblindado" width="320px" height="200px"
-                alt="Site Blindadão 0 Hackers" />
-        </picture>
+        <video autoplay muted loop id='video'>
+            Este navegador não suporta vídeo.
+        </video>
     </div>
+
+    <script>
+        (() => {
+            try {
+                const queries = new URLSearchParams(location.search);
+                const imageVersion = queries.get('fabi')
+                    , videoVersion = queries.get('fabiv');
+                if (imageVersion !== null) document.documentElement.style.backgroundImage = `url(images/fabi${imageVersion}.webp)`;
+                else if (videoVersion !== null) {
+                    const video = document.getElementById('video');
+                    const source = document.createElement('source');
+                    source.type = 'video/mp4';
+                    source.src = `/videos/fabi${videoVersion}.mp4`;
+                    video.prepend(source);
+                }
+            } catch (e) { }
+        })();
+    </script>
 </body>
 
 </html>

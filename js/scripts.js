@@ -5,7 +5,7 @@
 
   document.addEventListener('readystatechange', (event) => {
     if (event.target.readyState === 'interactive') {
-      console.log('%c> Page State:', 'font-weight:bold color:red', 'readystate interactive.');
+      console.log('%c> Page State:', 'font-weight:bold;color:red', 'readystate interactive.');
     }
 
     if (event.target.readyState === 'complete') {
