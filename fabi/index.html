@@ -51,7 +51,6 @@
     <title>Gepeto</title>
 
     <!-- Main styles -->
-    <link rel="stylesheet" href="/css/styles.css">
     <style>
         html {
             /* background: url(images/bg.jpg) no-repeat center center fixed; */
@@ -92,8 +91,8 @@
     <script>
         (() => {
             try {
-                const queries = new URLSearchParams(location.search);
-                const imageVersion = queries.get('fabi')
+                const queries = new URLSearchParams(location.search)
+                    , imageVersion = queries.get('fabi')
                     , videoVersion = queries.get('fabiv');
                 if (imageVersion !== null) {
                     document.documentElement.style.backgroundImage = `url(/images/fabi${imageVersion}.webp)`;
