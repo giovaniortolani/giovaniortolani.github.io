@@ -104,7 +104,9 @@
                     source.src = `/videos/fabi${videoVersion}.mp4`;
                     video.prepend(source);
                 } else {
-                    document.getElementById('root').textContent = 'Adora dormir rsrsrs';
+                    const root = document.getElementById('root');
+                    root.textContent = 'Adora dormir rsrsrs';
+                    root.style.color = 'white';
                 }
             } catch (e) { }
         })();
