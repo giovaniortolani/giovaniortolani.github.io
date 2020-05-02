@@ -67,7 +67,7 @@
     <!-- Prebrowsing - END -->
 
     <!-- Google Tag Manager - BEGIN -->
-    <script>
+    <!--script>
         (function (w, d, s, l, i) {
             w[l] = w[l] || [];
             w[l].push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' });
@@ -78,7 +78,7 @@
             j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
             f.parentNode.insertBefore(j, f);
         })(window, document, 'script', 'dataLayer', 'GTM-MQQ8N79');
-    </script>
+    </script-->
     <!-- Google Tag Manager - END -->
 
     <!-- Main JS -->
@@ -149,6 +149,14 @@
         <button class="button" onclick="callGoogleWebApp(event)">Chama na citação do Google Web App</button>
         <div id="googleWebApp"></div>
 
+        <button id="sendBeacon">SendBeacon</button>
+        <script>
+            document.getElementById('sendBeacon').addEventListener('click', () => {
+                navigator.sendBeacon('https://www.google-analytics.com/collect?v=1&_v=j81d&a=1150123043&t=pageview&_s=1&dl=' +
+                    encodeURIComponent(location.href) +
+                    '&ul=en-us&de=UTF-8&dt=Gepeto&sd=24-bit&sr=414x736&vp=414x736&je=0&_u=aCDACAABBAAAgC~&jid=339620063&gjid=1465512184&cid=1859387364.1588014382&tid=UA-128978972-1&_gid=1326528259.1588279883&_r=1&gtm=2wg4m0MQQ8N79&cd3=1859387364.1588014382&cd2=1588279882666.hr1o048jedw&cd4=1588279882666&cd1=(not%20set)&cd5=49&cd6=Timestamp%3A%201588279882666%20%7C%20Page%3A%20https%3A%2F%2Fgepeto.ga%2F%20%7C%20Referrer%3A%20%20%7C%20PerformanceNavigation%20Type%3A%20RELOAD%20%7C%20newTab%3A%20false%20%7C%20tabId%3A%201588272091264.p4oxa0q64r%20%7C%20Visibility%3A%20visible%20%7C%20sessionId%3A%201588279882666.hr1o048jedw%20%7C%20clientId%3A%201859387364.1588014382%20%7C%20Container%20Version%3A%2049%20%7C%20Event%3A%20gtm.js%20%7C%20hitType%3A%20pageview%20%7C%20viewport%3A%20414x736%20%7C%20userAgent%3A%20Mozilla%2F5.0%20(iPhone%3B%20CPU%20iPhone%20OS%2013_2_3%20like%20Mac%20OS%20X)%20AppleWebKit%2F605.1.15%20(KHTML%2C%20like%20Gecko)%20Version%2F13.0.3%20Mobile%2F15E148%20Safari%2F604.1&cd7=pageview&cd8=gtm.js&cd9=RELOAD&z=' + new Date().getTime());
+            });
+        </script>
         <!-- ShowTagDict -->
         <!-- <button onclick="callSpreadsheet()">Invocar showTagDict no Data Layer</button> -->
     </main>
