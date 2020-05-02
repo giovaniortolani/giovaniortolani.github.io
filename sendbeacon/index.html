@@ -2,70 +2,6 @@
 <html lang="pt-br">
 
 <head>
-    <!-- Teste do link de compartilhamento de browsers mobile ->
-    <!-- <link rel="canonical" href="https://gepetotestes.ga/?soubobo=true"> -->
-
-    <!-- Exemplos de push no DL antes do GTM ser inicializado. Mesmo assim todas as tags são disparadas corretamente.
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        window.dataLayer.push({
-            event: 'event',
-            category: 'teste',
-            action: 'teste',
-            label: 'teste'
-        });
-        window.dataLayer.push({
-            event: 'event',
-            category: 'teste1',
-            action: 'teste1',
-            label: 'teste1'
-        });
-        window.dataLayer.push({
-            event: 'event',
-            category: 'teste2',
-            action: 'teste2',
-            label: 'teste2'
-        });
-    </script>
-    -->
-
-    <!-- ShowTagDict -->
-    <!-- <script defer src="/js/showTagDict.js"></script> -->
-
-    <!-- Teste de carregamento de scripts externos lentos -->
-    <!--<script defer src='https://javascript.info/article/script-async-defer/long.js?speed=1'></script>-->
-    <!--<script defer src='/js/test.js'></script>-->
-
-    <!-- Teste de carregamento de uma imagem muito grande -->
-    <!-- <img src="https://images.unsplash.com/photo-1500021804447-2ca2eaaaabeb?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&cb=12345" alt="large image"> -->
-
-    <!-- ga.js (legacy)
-    <script>
-        var _gaq = _gaq || [];
-        _gaq.push(['_setAccount', 'UA-128978972-1']);
-        _gaq.push(['_trackPageview']);
-        _gaq.push(['gepeto.ga']);
-
-        (function() {
-            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-        })();
-    </script>
-    -->
-
-    <!-- Prebrowsing - BEGIN -->
-    <!--
-    <link rel="preload" href="//www.googletagmanager.com/gtm.js?id=GTM-MQQ8N79" as="script">
-    <link rel="preload" href="//www.google-analytics.com/analytics.js" as="script">
-    <link rel="preload" href="//connect.facebook.net/en_US/fbevents.js" as="script">
-    <link rel="preconnect" href="//www.googletagmanager.com">
-    <link rel="dns-prefetch" href="//www.googletagmanager.com">
-    <link rel="preconnect" href="//www.google-analytics.com">
-    <link rel="dns-prefetch" href="//www.google-analytics.com">
-    -->
-    <!-- Prebrowsing - END -->
-
     <!-- Google Tag Manager - BEGIN -->
     <!--script>
         (function (w, d, s, l, i) {
@@ -101,9 +37,6 @@
     <meta name="description" content="Site de testes do Giovani Ortolani Barbosa. Venha conhecer." />
     <meta name="author" content="Giovani Ortolani Barbosa" />
     <title>Gepeto</title>
-
-    <!-- Main styles -->
-    <link rel="stylesheet" href="/css/styles.css">
 </head>
 
 <body>
@@ -113,42 +46,6 @@
     <!-- End Google Tag Manager (noscript) -->
 
     <main>
-        <p>teste testinho</p>
-
-        <div class="button">
-            <a href="/link.html">link.html</a>
-        </div>
-        <div class="button">
-            <a href="/empty.html">empty.html</a>
-        </div>
-        <div class="button">
-            <a href="https://example.com/" target="_blank" rel="noopener">example.com</a>
-        </div>
-        <div class=" button">
-            <a href="http://raccoongepeto.c1.biz/" target="_blank" rel="noopener">raccoongepeto.c1.biz/</a>
-        </div>
-        <div class=" button">
-            <a href="https://thn99.ga/?utm_source=quero&utm_medium=comissão&utm_campaign=gepeto&utm_term=brunecabobo"
-                target="_blank" rel="noopener">
-                Site do Pomarola
-            </a>
-        </div>
-        <div class="button">
-            <a href="https://inhame.ga/?utm_source=quero&utm_medium=comissão&utm_campaign=gepeto&utm_term=brunecabobo"
-                target="_blank" rel="noopener">
-                Site do rato da Estatísica
-            </a>
-        </div>
-        <div class="button">
-            <a href="https://www.banheiro.ga/?utm_source=quero&utm_medium=comissão&utm_campaign=gepeto&utm_term=brunecabobo"
-                target="_blank" rel="noopener">
-                Site do Deus das Tags
-            </a>
-        </div>
-
-        <button class="button" onclick="callGoogleWebApp(event)">Chama na citação do Google Web App</button>
-        <div id="googleWebApp"></div>
-
         <button id="sendBeacon">SendBeacon</button>
         <script>
             document.getElementById('sendBeacon').addEventListener('click', () => {
@@ -157,17 +54,7 @@
                     '&ul=en-us&de=UTF-8&dt=Gepeto&sd=24-bit&sr=414x736&vp=414x736&je=0&_u=aCDACAABBAAAgC~&jid=339620063&gjid=1465512184&cid=1859387364.1588014382&tid=UA-128978972-1&_gid=1326528259.1588279883&_r=1&gtm=2wg4m0MQQ8N79&cd3=1859387364.1588014382&cd2=1588279882666.hr1o048jedw&cd4=1588279882666&cd1=(not%20set)&cd5=49&cd6=Timestamp%3A%201588279882666%20%7C%20Page%3A%20https%3A%2F%2Fgepeto.ga%2F%20%7C%20Referrer%3A%20%20%7C%20PerformanceNavigation%20Type%3A%20RELOAD%20%7C%20newTab%3A%20false%20%7C%20tabId%3A%201588272091264.p4oxa0q64r%20%7C%20Visibility%3A%20visible%20%7C%20sessionId%3A%201588279882666.hr1o048jedw%20%7C%20clientId%3A%201859387364.1588014382%20%7C%20Container%20Version%3A%2049%20%7C%20Event%3A%20gtm.js%20%7C%20hitType%3A%20pageview%20%7C%20viewport%3A%20414x736%20%7C%20userAgent%3A%20Mozilla%2F5.0%20(iPhone%3B%20CPU%20iPhone%20OS%2013_2_3%20like%20Mac%20OS%20X)%20AppleWebKit%2F605.1.15%20(KHTML%2C%20like%20Gecko)%20Version%2F13.0.3%20Mobile%2F15E148%20Safari%2F604.1&cd7=pageview&cd8=gtm.js&cd9=RELOAD&z=' + new Date().getTime());
             });
         </script>
-        <!-- ShowTagDict -->
-        <!-- <button onclick="callSpreadsheet()">Invocar showTagDict no Data Layer</button> -->
     </main>
-
-    <div id="siteblindadocontainer">
-        <picture>
-            <source type="image/webp" srcset="/images/siteblindado.webp">
-            <img src="/images/siteblindado.png" id="siteblindado" width="320px" height="200px"
-                alt="Site Blindadão 0 Hackers" />
-        </picture>
-    </div>
 </body>
 
 </html>
